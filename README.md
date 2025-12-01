@@ -1,5 +1,18 @@
+
 # Zero-Trust-Security-Lab---Server-Hardering-
 Zero-Trust security lab with Tailscale access, hardened SSH, strict firewall rules, a port 22 honeypot for brute-force monitoring, and an isolated web exploitation environment using BeEF. Built for safe offensive-security, logging, and detection practice.
+
+## What You Get
+
+| Feature                        | Status     | Description |
+|--------------------------------|------------|-----------|
+| Zero public SSH                | Complete   | Only reachable via Tailscale (100.x.x.x) |
+| Key-only authentication       | Complete   | `PasswordAuthentication no`, root disabled |
+| Port 22 honeypot               | Complete   | Cowrie in Docker – full bot trap |
+| Strict UFW firewall            | Complete   | Default deny + Tailscale interface allowed |
+| Auto security updates          | Complete   | unattended-upgrades |
+| Tailscale exit-node ready      | Complete   | Optional full-tunnel VPN |
+| BeEF / Web lab (optional)      | Complete   | Isolated on port 80/3000 |
 
 
 ## How it Works? 
