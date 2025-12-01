@@ -195,6 +195,11 @@ Go on TailScale web page and create account
 
 <img width="573" height="437" alt="register 2" src="https://github.com/user-attachments/assets/0c691e83-f016-42cb-802c-c11a16d5db78" />
 
+
+---
+
+<img width="1156" height="699" alt="TAIL MACHINE" src="https://github.com/user-attachments/assets/d03f4cba-6d39-48c0-86df-5d81ff14bed0" />
+
 ```
 curl -fsSL https://tailscale.com/install.sh | sh
 ```
@@ -249,9 +254,9 @@ sudo ufw enable
 
 ## Step 8: How to login on your server when we set TailScale?
 
-
+### Imptorant ### The SSH port (3333) is not open publicly, but it can be used within the Tailscale network
 When you finish the setup following this guide, make sure to log in to your previously created Tailscale account. After logging in, check the “My Machines” page — your server should appear there. Once it’s visible, connect to it using the Tailscale IP shown on that page, for example:
-The SSH port (3333) is not open publicly, but it can be used within the Tailscale network
+
 ```
 ssh test@100.31.13.31 -p 3333
 ```
