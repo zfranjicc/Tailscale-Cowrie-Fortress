@@ -267,6 +267,42 @@ sudo systemctl status tailscaled
 Also check that you are logged in through the web browser (Tailscale admin panel).
 
 
+## Step 9: Real SSH Honeypot on Port 22 – Cowrie + Docker (1 minute setup)
+
+Goal: Keep port 22 publicly open to attract bots, but make sure **nobody can ever reach your real server**.
+
+What is Docker?  
+Think of it as a sealed “fake computer inside your computer”. Even if an attacker fully compromises it, they can never escape to your real system.
+
+What we’re doing:
+- Install Docker (once)
+- Run Cowrie – the world’s most realistic fake SSH server
+- It takes over public port 22
+- Attackers think they’re in… but they’re trapped forever
+
+### Commands (just copy-paste)
+
+```bash
+# 1. Install Docker
+sudo apt update && sudo apt install docker.io -y
+sudo systemctl enable --now docker
+
+# Optional (recommended): run Docker without sudo
+sudo usermod -aG docker $USER   # ← log out & back in after this
+
+# 2. Launch the fake SSH server on real port 22 (one command = everything)
+docker run -d --name cowrie \
+  -p 22:2222 \
+  --restart unless-stopped \
+  cowrie/cowrie:latest
+
+# 3. Watch attackers live (you’ll see action in 2–5 minutes)
+docker logs -f cowrie
+
+
+
+
+
 
 
 
