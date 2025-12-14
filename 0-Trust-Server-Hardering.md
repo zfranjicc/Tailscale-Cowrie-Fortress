@@ -267,7 +267,8 @@ sudo systemctl status tailscaled
 Also check that you are logged in through the web browser (Tailscale admin panel).
 
 
-## Step 9: Real SSH Honeypot on Port 22 – Cowrie + Docker (1 minute setup)
+## Step 9 (OPTIONAL): Research Honeypot Mode – Cowrie SSH (Docker)
+
 
 Goal: Keep port 22 publicly open to attract bots, but make sure **nobody can ever reach your real server**.
 
@@ -298,10 +299,15 @@ docker run -d --name cowrie \
 
 # 3. Watch attackers live (you’ll see action in 2–5 minutes)
 docker logs -f cowrie
+```
 
 
 
+⚠️ IMPORTANT
+This step is OPTIONAL and MUST NOT be enabled in Zero-Trust Production Mode.
 
+Use this only when running the server in "Honeypot / Research Mode".
+In Zero-Trust mode, port 22 must remain closed.
 
 
 
